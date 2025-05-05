@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airline Customer Prediction</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="logo-container">
+        <img src="{{ url_for('static', filename='Norse_Logo_Blue_Horizontal_Tagline_RGB.png') }}" alt="Dan Airlines Logo" class="company-logo">
+    </div>
+    <div class="container">
+        <h1 class="mt-4 mb-4">Customer Prediction Model</h1>
+        
+        <div class="card">
+            <div class="card-header">Prediction Settings</div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="prediction-type" class="form-label">Prediction Type:</label>
+                    <select id="prediction-type" class="form-select">
+                        <option value="general">General Purchase Likelihood</option>
+                        <option value="destination">Destination-Specific Likelihood</option>
+                    </select>
+                </div>
+                
+                <div class="form-group" id="destination-group" style="display: none;">
+                    <label for="destination" class="form-label">Destination:</label>
+                    <select id="destination" class="form-select">
+                        <option value="New York">New York</option>
+                        <option value="Bangkok">Bangkok</option>
+                        <option value="Orlando">Orlando</option>
+                        <option value="Los Angeles">Los Angeles</option>
+                        <option value="Miami">Miami</option>
+                        <option value="Hawaii">Hawaii (New Route)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="threshold" class="form-label">Minimum Score Threshold:</label>
+                    <input type="range" class="form-range" id="threshold" min="0" max="100" step="5" value="70">
+                    <div class="d-flex justify-content-between">
+                        <span>0</span>
+                        <span id="threshold-value">70</span>
+                        <span>100</span>
+                    </div>
+                </div>
+                
+                <button id="predict-btn" class="btn btn-primary">Find Customers</button>
+            </div>
+        </div>
+        
+        <div class="loading">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <p>Processing prediction...</p>
+        </div>
+        
+        <div id="results" style="display: none;">
+            <h2 class="prediction-title" id="prediction-title"></h2>
+            <div class="card">
+                <div class="card-header">Results</div>
+                <div class="card-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Customer Name</th>
+                                <th>Likelihood Score</th>
+                            </tr>
+                        </thead>
+                        <tbody id="results-body">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('prediction-type').addEventListener('change', function() {
+                const destinationGroup = document.getElementById('destination-group');
+                if (this.value === 'destination') {
+                    destinationGroup.style.display = 'block';
+                } else {
+                    destinationGroup.style.display = 'none';
+                }
+            });
+            
+            document.getElementById('threshold').addEventListener('input', function() {
+                document.getElementById('threshold-value').textContent = this.value;
+            });
+            
+            document.getElementById('predict-btn').addEventListener('click', function() {
+                document.getElementById('results').style.display = 'none';
+                document.querySelector('.loading').style.display = 'block';
+                
+                const predictionType = document.getElementById('prediction-type').value;
+                const threshold = document.getElementById('threshold').value;
+                let destination = null;
+                
+                if (predictionType === 'destination') {
+                    destination = document.getElementById('destination').value;
+                }
+                
+                const requestData = {
+                    prediction_type: predictionType,
+                    threshold: threshold
+                };
+                
+                if (destination) {
+                    requestData.destination = destination;
+                }
+                
+                fetch('/predict', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(requestData)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    document.querySelector('.loading').style.display = 'none';
+                    
+                    document.getElementById('prediction-title').textContent = 
+                        `${data.prediction_type} (Threshold: ${data.threshold})`;
+                    
+                    const resultsBody = document.getElementById('results-body');
+                    resultsBody.innerHTML = '';
+                    
+
+                    if (data.customers && data.customers.length > 0) {
+                        data.customers.forEach(customer => {
+                            const row = document.createElement('tr');
+                            
+                            const nameCell = document.createElement('td');
+                            nameCell.textContent = customer.name;
+                            row.appendChild(nameCell);
+                            
+                            const scoreCell = document.createElement('td');
+                            scoreCell.textContent = customer.score.toFixed(1);
+                            
+                            if (customer.score >= 85) {
+                                scoreCell.classList.add('high-score');
+                            } else if (customer.score >= 70) {
+                                scoreCell.classList.add('medium-score');
+                            } else {
+                                scoreCell.classList.add('low-score');
+                            }
+                            
+                            row.appendChild(scoreCell);
+                            
+                            resultsBody.appendChild(row);
+                        });
+                    } else {
+                        const row = document.createElement('tr');
+                        const cell = document.createElement('td');
+                        cell.colSpan = 2;
+                        cell.textContent = 'No customers found meeting the criteria.';
+                        cell.style.textAlign = 'center';
+                        row.appendChild(cell);
+                        resultsBody.appendChild(row);
+                    }
+                    
+                    document.getElementById('results').style.display = 'block';
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.querySelector('.loading').style.display = 'none';
+                    alert('An error occurred. Please try again.');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
