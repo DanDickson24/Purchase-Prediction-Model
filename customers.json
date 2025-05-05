@@ -1,0 +1,205 @@
+{
+    "customers": [
+      {
+        "id": 1,
+        "name": "James Wilson",
+        "address": "15 Oxford Street, London, SW1A 1AA",
+        "purchases": [
+          {"date": "2023-04-15", "destination": "New York", "ticket_type": "Economy", "price": 450.00},
+          {"date": "2023-08-22", "destination": "Los Angeles", "ticket_type": "Economy", "price": 520.00},
+          {"date": "2024-01-10", "destination": "New York", "ticket_type": "Economy", "price": 480.00},
+          {"date": "2024-11-05", "destination": "Miami", "ticket_type": "Business", "price": 1200.00}
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Emily Johnson",
+        "address": "42 Kensington Gardens, London, W2 3BP",
+        "purchases": [
+          {"date": "2023-05-20", "destination": "Bangkok", "ticket_type": "Economy", "price": 650.00},
+          {"date": "2023-12-10", "destination": "Bangkok", "ticket_type": "Economy", "price": 680.00},
+          {"date": "2024-07-15", "destination": "Bangkok", "ticket_type": "Economy", "price": 700.00}
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Robert Brown",
+        "address": "78 Camden High Street, London, NW1 7JR",
+        "purchases": [
+          {"date": "2023-03-05", "destination": "Orlando", "ticket_type": "Economy", "price": 520.00},
+          {"date": "2023-06-18", "destination": "Orlando", "ticket_type": "Economy", "price": 550.00},
+          {"date": "2024-03-22", "destination": "Miami", "ticket_type": "Economy", "price": 510.00},
+          {"date": "2024-09-15", "destination": "Orlando", "ticket_type": "Economy", "price": 540.00}
+        ]
+      },
+      {
+        "id": 4,
+        "name": "Sarah Thompson",
+        "address": "23 Notting Hill Gate, London, W11 3JQ",
+        "purchases": [
+          {"date": "2023-07-08", "destination": "Los Angeles", "ticket_type": "Business", "price": 1800.00},
+          {"date": "2024-01-25", "destination": "Los Angeles", "ticket_type": "Business", "price": 1850.00},
+          {"date": "2024-08-05", "destination": "Los Angeles", "ticket_type": "Business", "price": 1900.00}
+        ]
+      },
+      {
+        "id": 5,
+        "name": "Michael Davies",
+        "address": "56 Baker Street, London, W1U 7BU",
+        "purchases": [
+          {"date": "2023-09-12", "destination": "New York", "ticket_type": "First Class", "price": 3200.00},
+          {"date": "2024-02-28", "destination": "New York", "ticket_type": "First Class", "price": 3300.00},
+          {"date": "2024-10-10", "destination": "New York", "ticket_type": "First Class", "price": 3400.00}
+        ]
+      },
+      {
+        "id": 6,
+        "name": "Jennifer Roberts",
+        "address": "89 Piccadilly, London, W1J 7NB",
+        "purchases": [
+          {"date": "2023-04-02", "destination": "Bangkok", "ticket_type": "Economy", "price": 620.00},
+          {"date": "2023-11-20", "destination": "Bangkok", "ticket_type": "Business", "price": 1700.00},
+          {"date": "2024-05-15", "destination": "Bangkok", "ticket_type": "Business", "price": 1750.00}
+        ]
+      },
+      {
+        "id": 7,
+        "name": "David Williams",
+        "address": "34 Covent Garden, London, WC2E 8RF",
+        "purchases": [
+          {"date": "2023-08-05", "destination": "Miami", "ticket_type": "Economy", "price": 490.00},
+          {"date": "2024-03-12", "destination": "Miami", "ticket_type": "Economy", "price": 510.00}
+        ]
+      },
+      {
+        "id": 8,
+        "name": "Sophie Turner",
+        "address": "67 Chelsea Embankment, London, SW3 4RY",
+        "purchases": [
+          {"date": "2023-05-30", "destination": "Los Angeles", "ticket_type": "Economy", "price": 530.00},
+          {"date": "2023-12-18", "destination": "Los Angeles", "ticket_type": "Economy", "price": 550.00},
+          {"date": "2024-06-22", "destination": "New York", "ticket_type": "Economy", "price": 470.00}
+        ]
+      },
+      {
+        "id": 9,
+        "name": "Richard Clark",
+        "address": "12 Mayfair, London, W1K 2AL",
+        "purchases": [
+          {"date": "2023-07-25", "destination": "Orlando", "ticket_type": "Business", "price": 1400.00},
+          {"date": "2024-02-10", "destination": "Orlando", "ticket_type": "Business", "price": 1450.00},
+          {"date": "2024-09-28", "destination": "Orlando", "ticket_type": "Business", "price": 1500.00}
+        ]
+      },
+      {
+        "id": 10,
+        "name": "Emma Phillips",
+        "address": "45 Knightsbridge, London, SW1X 7LY",
+        "purchases": [
+          {"date": "2023-06-05", "destination": "Miami", "ticket_type": "First Class", "price": 2800.00},
+          {"date": "2024-01-18", "destination": "Miami", "ticket_type": "First Class", "price": 2900.00},
+          {"date": "2024-07-30", "destination": "Miami", "ticket_type": "First Class", "price": 3000.00}
+        ]
+      },
+      {
+        "id": 11,
+        "name": "Andrew Martin",
+        "address": "78 Holland Park, London, W11 4UL",
+        "purchases": [
+          {"date": "2023-03-22", "destination": "New York", "ticket_type": "Economy", "price": 460.00},
+          {"date": "2023-10-15", "destination": "Los Angeles", "ticket_type": "Economy", "price": 540.00},
+          {"date": "2024-04-08", "destination": "New York", "ticket_type": "Economy", "price": 480.00}
+        ]
+      },
+      {
+        "id": 12,
+        "name": "Olivia White",
+        "address": "29 Westminster, London, SW1P 3BD",
+        "purchases": [
+          {"date": "2023-09-28", "destination": "Bangkok", "ticket_type": "Business", "price": 1650.00},
+          {"date": "2024-03-05", "destination": "Bangkok", "ticket_type": "Business", "price": 1700.00},
+          {"date": "2024-10-20", "destination": "Bangkok", "ticket_type": "Business", "price": 1750.00}
+        ]
+      },
+      {
+        "id": 13,
+        "name": "Daniel Scott",
+        "address": "51 Canary Wharf, London, E14 5AB",
+        "purchases": [
+          {"date": "2023-05-10", "destination": "Orlando", "ticket_type": "Economy", "price": 510.00},
+          {"date": "2023-11-25", "destination": "Orlando", "ticket_type": "Economy", "price": 530.00},
+          {"date": "2024-04-30", "destination": "Orlando", "ticket_type": "Economy", "price": 540.00}
+        ]
+      },
+      {
+        "id": 14,
+        "name": "Charlotte Adams",
+        "address": "87 Richmond, London, TW9 1WS",
+        "purchases": [
+          {"date": "2023-08-15", "destination": "Los Angeles", "ticket_type": "Economy", "price": 520.00},
+          {"date": "2024-02-20", "destination": "Los Angeles", "ticket_type": "Business", "price": 1800.00}
+        ]
+      },
+      {
+        "id": 15,
+        "name": "Thomas Walker",
+        "address": "36 Hammersmith, London, W6 9DU",
+        "purchases": [
+          {"date": "2023-06-28", "destination": "New York", "ticket_type": "Business", "price": 1600.00},
+          {"date": "2023-12-05", "destination": "New York", "ticket_type": "Business", "price": 1650.00},
+          {"date": "2024-05-18", "destination": "New York", "ticket_type": "Business", "price": 1700.00}
+        ]
+      },
+      {
+        "id": 16,
+        "name": "Grace Robinson",
+        "address": "63 Islington, London, N1 8QP",
+        "purchases": [
+          {"date": "2023-04-10", "destination": "Miami", "ticket_type": "Economy", "price": 480.00},
+          {"date": "2023-11-15", "destination": "Los Angeles", "ticket_type": "Economy", "price": 530.00},
+          {"date": "2024-06-05", "destination": "Miami", "ticket_type": "Economy", "price": 500.00}
+        ]
+      },
+      {
+        "id": 17,
+        "name": "Harry Lewis",
+        "address": "92 Greenwich, London, SE10 8EY",
+        "purchases": [
+          {"date": "2023-07-18", "destination": "Bangkok", "ticket_type": "First Class", "price": 3500.00},
+          {"date": "2024-01-30", "destination": "Bangkok", "ticket_type": "First Class", "price": 3600.00},
+          {"date": "2024-08-25", "destination": "Bangkok", "ticket_type": "First Class", "price": 3700.00}
+        ]
+      },
+      {
+        "id": 18,
+        "name": "Amelia Green",
+        "address": "41 Shoreditch, London, E1 6PL",
+        "purchases": [
+          {"date": "2023-05-25", "destination": "Orlando", "ticket_type": "Business", "price": 1450.00},
+          {"date": "2023-12-12", "destination": "Orlando", "ticket_type": "Business", "price": 1500.00},
+          {"date": "2024-07-08", "destination": "Orlando", "ticket_type": "Business", "price": 1550.00}
+        ]
+      },
+      {
+        "id": 19,
+        "name": "George Taylor",
+        "address": "75 Hackney, London, E8 4RW",
+        "purchases": [
+          {"date": "2023-03-15", "destination": "Los Angeles", "ticket_type": "Economy", "price": 510.00},
+          {"date": "2023-09-22", "destination": "New York", "ticket_type": "Economy", "price": 470.00},
+          {"date": "2024-02-15", "destination": "Los Angeles", "ticket_type": "Economy", "price": 530.00},
+          {"date": "2024-10-05", "destination": "New York", "ticket_type": "Economy", "price": 490.00}
+        ]
+      },
+      {
+        "id": 20,
+        "name": "Lily Moore",
+        "address": "24 Brixton, London, SW9 8JZ",
+        "purchases": [
+          {"date": "2023-06-12", "destination": "Bangkok", "ticket_type": "Economy", "price": 640.00},
+          {"date": "2024-01-05", "destination": "Bangkok", "ticket_type": "Economy", "price": 660.00},
+          {"date": "2024-09-18", "destination": "Bangkok", "ticket_type": "Economy", "price": 680.00}
+        ]
+      }
+    ]
+  }
